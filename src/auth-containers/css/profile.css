@@ -1,0 +1,13 @@
+.main-container {
+  width:500px;
+  text-align:center;
+  padding:8px;
+}
+.main-container div {
+  width:300px;
+}
+
+img.profile {
+  border-radius:150px;
+  border: 1px solid black;
+}

@@ -1,0 +1,15 @@
+/* ------------------------------------------------------------ *\
+	Breadcrumbs
+\* ------------------------------------------------------------ */
+
+.breadcrumbs { overflow: hidden; padding: 28px 0 20px; margin: 0; font-family: 'Open Sans', sans-serif; font-size: 14px; color: #a0b0bf; font-weight: 400; }
+.breadcrumbs.blue,
+.breadcrumbs.blue .current { color: #4fa5f9; }
+.breadcrumbs span { padding: 0 4px; }
+.breadcrumbs.blue span { color: #a0b0bf; }
+.breadcrumbs a { color: inherit; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs .current { padding: 0; color: #465d74; }
+.breadcrumbs .time { float: right; font-size: 16px; color: #465d74; }
+.breadcrumbs .time.orange { color: #f08600; }
+.breadcrumbs .time.red { color: #ec2c06; }

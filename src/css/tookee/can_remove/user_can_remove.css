@@ -1,0 +1,85 @@
+/* ------------------------------------------------------------ *\
+	User Profile
+\* ------------------------------------------------------------ */
+
+.user-profile .user-head { margin-bottom: 73px; font-size: 0; }
+.user-profile .user-head:after { content: ''; display: table; clear: both; font-size: 0; }
+.user-profile .user-head h3 { display: inline-block; width: 50%; margin: 0; font-size: 0; font-family: 'Open Sans', sans-serif; font-size: 24px; line-height: 1.33; color: #243347; font-weight: 700; }
+.user-profile .user-head h3 span { color: #99afbf; font-weight: 400; }
+.user-profile .user-head-inner { display: inline-block; width: 50%; text-align: right; }
+.user-profile .user-head .btn + .btn { margin-left: 6px; }
+
+.user-profile .user-body { position: static; display: block; width: auto; border: none; box-shadow: none; }
+
+/* ------------------------------------------------------------ *\
+	User Preview
+\* ------------------------------------------------------------ */
+
+.user-meta-information { position: relative; margin-bottom: 39px; font-size: 0; }
+.user-meta-information .edit { position: absolute; top: 0; right: 0; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.3; color: #4fa5f9; text-decoration: none; }
+.user-meta-information .edit:hover { opacity: .7; }
+.user-meta-information figure { display: inline-block; width: 124px; height: 124px; margin: 0 40px 0 0; border-right: 50%; vertical-align: middle; }
+.user-meta-information figure img { width: 100%; height: auto; }
+.user-meta-information-inner { display: inline-block; vertical-align: middle; }
+.user-preview .user-name { margin: 0 0 5px; font-family: 'Open Sans', sans-serif; font-size: 32px; line-height: 1.25; color: #4a5c72; font-weight: 300; }
+.user-preview .user-head .user-name,
+.user-preview .user-head .rating { display: inline-block; vertical-align: middle; }
+.user-preview .user-name-block { display: block; }
+.user-preview .user-name span { padding-right: 8px; font-size: 16px; color: #20d06a; vertical-align: middle; }
+.user-preview blockquote { position: relative; margin: 0 0 53px; padding: 0 55px 0 24px; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.75; color: #4a5c73; }
+.user-preview blockquote i { position: absolute; top: 6px; left: 0; }
+.user-preview h4 { margin: 0 0 18px; font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 1.3; color: #a0b0be; text-transform: uppercase; font-weight: 700; }
+.user-preview h4 span { font-weight: 400; }
+.user-video { position: relative; max-width: 580px; height: auto; margin: 0 auto 55px; padding-bottom: 56.25%; }
+.user-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.user-preview .user-meta-information-actions { position: absolute; top: 0; right: 0; }
+.user-preview .user-meta-information-actions .btn { margin-bottom: 0; }
+.user-preview .user-meta-information-actions .info { font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.3; color: #4a5c73; text-align: center; }
+.user-preview .ico-coffee-grey { display: inline-block; width: 16px; height: 16px; background: url(../images/ico-coffee-grey@2x.png) 0 0 no-repeat; background-size: 16px 16px; font-size: 0; }
+.user-preview .info { text-align: center; }
+
+/* ------------------------------------------------------------ *\
+	User Simple Profile
+\* ------------------------------------------------------------ */
+
+.user-simple-profile { display:none; position: absolute; top: 0; left: 0; right: 0; border-bottom: 1px solid #d7e2e8; background-color: #fff; z-index:9; }
+.user-simple-profile-inner  { position: relative; max-width: 740px; padding: 5px 0 5px; margin: 0 auto; }
+.user-simple-profile-image { overflow: hidden; display: inline-block; width: 124px; height: 124px; border-radius: 50%; margin: 0 35px 0 0; vertical-align: middle; }
+.user-simple-profile-image img { width: 100%; height: auto; }
+.user-simple-profile .user-meta-information { display: inline-block; width: 100%; max-width: 560px; margin-bottom: 0; vertical-align: middle; }
+.user-simple-profile .user-name { display: inline-block; vertical-align: middle; }
+.user-simple-profile .user-name-block { display: block; }
+.user-simple-profile .rating { display: inline-block; margin-left: 19px; vertical-align: middle; }
+.user-simple-profile .list-user-skills { display: inline-block; width: 100%; max-width: 270px; margin-bottom: 0; vertical-align: bottom; }
+.user-meta-information-inner .btn { vertical-align: bottom; }
+.user-simple-profile .list-user-skills li { float: none; margin-bottom: 6px; }
+.user-simple-profile .list-user-skills li:last-child { margin-bottom: 0; }
+.user-simple-profile .user-actions {
+	position: absolute; 
+	top: -7px; 
+	right: 0; 
+	font-family: 'Open Sans', sans-serif; font-size: 16px; 
+	line-height: 1.3; 
+	color: #4fa5f9; 
+	text-align: right; 
+}
+.user-simple-profile .user-actions a {
+	display: block; 
+	margin-bottom: 15px;
+	font-family: 'Open Sans', sans-serif; font-size: 16px; 
+	color: #4fa5f9; 
+	text-decoration:none;
+}
+.user-simple-profile .user-actions .btn { color: #fff; }
+.user-simple-profile .user-actions .edit { position: static; }
+.user-simple-profile .close { position: absolute; top: 0; left: 100%; font-size: 16px; color: #99afbf; }
+
+.user-simple-profile.small .user-simple-profile-inner { position: relative; width: 700px; top:0; left:50%; margin: 5px 0 0 -350px; padding: 9px 8px 5px; }
+.user-simple-profile.small span{font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.3; color: #4a5c73; margin: 3px 8px 3px 3px;}
+.user-simple-profile.small .user-meta-information { max-width: 300px; }
+.user-simple-profile.small .user-meta-information-inner { display: block; }
+.user-simple-profile.small .user-meta-information-inner .btn { float: right; }
+.user-simple-profile.small .user-simple-profile-image { width: 36px; height: 36px; margin-right: 20px; }
+.user-simple-profile.small .close { top: 16px; }
+.user-simple-profile .live { display: inline-block; padding: 0 6px; margin-left: 20px; border-radius: 10px; background-color: #e50; font-family: 'Open Sans', sans-serif; font-size: 11px; line-height: 1.82; color: #fff; font-weight: 400; text-transform: uppercase; vertical-align: middle; }

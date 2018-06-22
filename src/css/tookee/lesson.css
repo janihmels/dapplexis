@@ -1,0 +1,23 @@
+/* ------------------------------------------------------------ *\
+	Lessons
+\* ------------------------------------------------------------ */
+
+.lesson { padding: 11px 21px 25px; border: 2px solid #eaeff3; border-radius: 4px; margin-bottom: 29px; }
+.lesson:after { content: ''; display: table; clear: both; font-size: 0; }
+.lesson-head { margin-bottom: 19px; }
+.lesson-title { margin: 0; font-family: 'Open Sans', sans-serif; font-size: 30px; line-height: 1.2; color: #253447; font-weight: 300; }
+.lesson-image { float: left; margin: 0 31px 0 5px; }
+.lesson-body { overflow: hidden; padding-right: 6px; text-align: right; }
+.lesson-entry { max-width: 342px; text-align: left; }
+.lesson h5 { margin: 0 0 6px; font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 1; color: #2f2f2f; font-weight: 600; text-transform: uppercase; }
+.lesson h5 span,
+.lesson h3 span { position: relative; display: inline-block; margin-left: 22px; font-size: 12px; color: #8c8c8b; vertical-align: bottom; text-transform: none; }
+.lesson h3 span { line-height: 1.8; }
+.lesson h5 span + span,
+.lesson h3 span + span { margin-left: 2px; padding-left: 8px; }
+.lesson h5 span + span:before,
+.lesson h3 span + span:before { content: ''; position: absolute; top: 50%; left: 0; width: 2px; height: 12px; background-color: #babab9; margin-top: -6px; }
+.lesson p { margin: 0 0 14px; padding-right: 10px; font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 1.5; }
+.lesson .box { padding: 5px 25px 0; border: 1px solid #edf1f4; border-radius: 2px; margin-bottom: 22px; font-size: 0; text-align: center; }
+.lesson .box span { display: inline-block; margin: 3px 9px 7px; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.3; color: #8c8c8b; vertical-align: middle; }
+.lesson .btn { min-width: 243px; text-align: center; }

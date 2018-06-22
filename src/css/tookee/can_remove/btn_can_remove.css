@@ -1,0 +1,62 @@
+/* ------------------------------------------------------------ *\
+	Btn
+\* ------------------------------------------------------------ */
+
+.btn { display: inline-block; height: 35px; padding: 0 10px; border-radius: 2px; background-color: #41baec; font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 2.5; color: #fff; text-transform: uppercase; font-weight: 400; text-decoration: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: background .4s; -o-transition: background .4s; transition: background .4s; }
+.btn:hover { background-color: #219dd0; cursor: pointer; }
+
+/* Btn Grey */
+.btn-grey { height: 32px; padding: 0 17px; background-color: #d1d1d1; font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 32px; color: #4c4c4c; letter-spacing: -0.02em; font-weight: 400; }
+.btn-grey:hover { background-color: #4c4c4c; color: #d1d1d1; }
+
+/* Btn Grey Alt */
+.btn-grey-alt { height: 40px; padding: 0 17px; border-radius: 4px; background-color: #99afbf; font-size: 18px; line-height: 40px; color: #fff; text-transform: none; }
+
+/* Btn Orange */
+.btn-orange { height: 32px; padding: 0 24px; background-color: #ffa72b; font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 32px; color: #fff; letter-spacing: -0.02em; font-weight: 400; }
+.btn-orange:hover { background-color: #fff; color: #ffa72b; }
+
+/* Btn Image */
+.btn-image { min-width: 300px; height: 113px; padding: 26px 24px 0; border: 1px solid transparent; border-radius: 4px; background-color: #fafbfd; font-size: 0; line-height: 0; color: #4a5c72; -webkit-transition: border .3s, color .3s; -o-transition: border .3s, color .3s; transition: border .3s, color .3s; }
+.btn-image:hover { border: 1px solid #d7e2e8; background-color: #fafbfd; color: #4fa5f9; }
+.btn-image i { margin-right: 40px; font-size: 64px; vertical-align: middle; }
+.btn-image span { display: inline-block; font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 1.33; font-weight: 300; vertical-align: middle; text-align: center; text-transform: none; }
+
+/* Btn Image Large */
+.btn-image-large { height: 254px; text-align: center; }
+.btn-image-large i { display: block; margin: 0; }
+.btn-image-large span { font-size: 32px; line-height: 1.25; }
+
+/* Btn Light Grey */
+.btn-light-grey { min-width: 280px; height: 40px; padding: 0 15px; border: 1px solid #d5e2e8; background-color: #fafbfd; font-size: 0; line-height: 38px; text-align: center; text-transform: none; }
+.btn-light-grey:hover { background-color: #fafbfd; }
+.btn-light-grey i { font-size: 16px; }
+.btn-light-grey span { font-size: 18px; }
+.btn-light-grey.green { color: #20d06a; }
+.btn-light-grey.green:hover { border-color: #20d06a; }
+.btn-light-grey.red { color: #ec2c06; }
+.btn-light-grey.red:hover { border-color: #ec2c06; }
+
+/* Btn Grey Blue */
+.btn-grey-blue { height: 40px; padding: 0 30px; border: 1px solid #d5e2e8; border-radius: 4px; background-color: #fafbfd; font-size: 18px; line-height: 38px; color: #4fa5f9; text-transform: none; }
+.btn-grey-blue:hover { border-color: #4fa5f9; background-color: #fafbfd; }
+
+/* Btn White */
+.btn-white { height: 40px; padding: 0 27px; border: 1px solid #d5e2e8; border-radius: 4px; background-color: #fafbfd; font-size: 18px; color: #f08600; line-height: 38px; text-transform: none; }
+.btn-white i { font-size: 18px; }
+.btn-white:hover { background-color: #f2f4f7; color: #e50; }
+
+/* Btn White Alt */
+.btn-white-alt { min-width: 380px; border-radius: 4px; background-color: #fff; color: #f08600; text-transform: none; }
+.btn-white-alt:hover { background-color: #fff; }
+
+/* Btn Blue */
+.btn-blue { min-width: 180px; height: 40px; padding: 0 20px; background-color: #4fa5f9; border: none; border-radius: 4px; font-size: 18px; line-height: 40px; text-align: center; text-transform: none; }
+.btn-blue i { margin-left: 10px; }
+
+/* Btn Transparent */
+.btn-transparent { height: 40px; padding: 0 20px; background-color: #fff; border: none; border-radius: 4px; font-size: 18px; line-height: 40px; color: #4fa5f9; text-align: center; text-transform: none; }
+.btn-transparent:hover { color: #fff; background-color: #4fa5f9; }
+
+/* Btn Large */
+.btn-large { height: 70px; font-size: 22px; line-height: 70px; }

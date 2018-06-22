@@ -1,0 +1,58 @@
+.main {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  text-align: center;
+  background: none;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: url(../media/spacebacklarge.jpeg) center;
+  opacity: 0.2;
+  z-index: -9;
+  background-size: cover;
+}
+
+.main .header {
+  width:100%;
+}
+
+.main .header .logo {
+  float:left;
+  color: white;
+  font-size: 18px;
+  line-height: 38px;
+}
+
+
+.main .header .logo.icon {
+  margin: 8px 8px 0 8px;
+  font-size: 38px;
+  color: #0ab4b4;
+  display: inline-block;
+}
+
+.main .header .logo.text {
+  margin: 8px 0 0;
+  display: inline-block;
+}
+
+.main .header .user {
+  float:right;
+  margin: 18px;
+}
+
+.main .header a {
+  cursor: pointer;
+  color: #0ab4b4;
+  font-weight: bold;
+}
+

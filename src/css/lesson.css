@@ -1,0 +1,67 @@
+.lesson {
+  margin-top:33px;
+  border-radius:8px;
+  background-color:#444;
+}
+
+.progress {
+  width:700px;
+  margin-top:33px;
+  border:none;
+  background-color:none;
+}
+
+.td-category {
+  font-size:15px;
+  color:#aaa;
+}
+
+.td-value {
+  font-size:33px;
+  color: white;
+}
+
+.lesson td {
+  margin:0;
+  padding:0;
+  border: 1px solid #444;
+  height:98px;
+  width:50%;
+  position: relative;
+  text-align:center;
+  background-color:#333;
+  color:#aaa;
+}
+
+.progress td {
+  margin:0;
+  padding:0;
+  border: 1px solid #444;
+  height:98px;
+  width:33%;
+  position: relative;
+  text-align:center;
+  background-color:#333;
+  color:#aaa;
+
+}
+
+.lesson td.tall {
+  height:200px;
+}
+
+.pie-display {
+  position: absolute;
+  font-size:18px;
+  color:#ddd;
+  top:92px;
+  left:105px;
+}
+
+.completed-display {
+  position: absolute;
+  font-size:18px;
+  color:#999;
+  bottom:18px;
+  left:78px;
+}

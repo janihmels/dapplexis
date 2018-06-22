@@ -1,0 +1,17 @@
+/* ------------------------------------------------------------ *\
+	Slider Lessons
+\* ------------------------------------------------------------ */
+
+.slider-lessons { position: relative; padding: 0 52px; }
+.slider-lessons .slider-prev,
+.slider-lessons .slider-next { position: absolute; top: 50%; color: #4fa5f9; text-align: center; font-weight: 400; text-decoration: none; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); transform: translateY(-50%); }
+.slider-lessons .slider-next { right: 0; }
+.slider-lessons .slider-prev { left: 0; }
+
+.slider-lessons .slider-prev:hover,
+.slider-lessons .slider-next:hover { color: #4a5c72; }
+
+.slider-lessons .slider-prev span,
+.slider-lessons .slider-next span { display: block; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.3; font-weight: 400; }
+.slider-lessons .slider-prev i,
+.slider-lessons .slider-next i { font-size: 100px; line-height: .6; }

@@ -1,0 +1,162 @@
+.picker {
+  height:98px;
+  width:100%;
+  text-align:center;
+  position: relative;
+  padding: 8px 8px 8px 8px;
+}
+
+.pickerLine {
+  height:8px;
+  background-color:black;
+}
+
+.picker div.time {
+  color:orange;
+  font-size:33px;
+  line-height:38px;
+}
+
+.picker div.date {
+  padding-top:3px;
+  color:#ccc;
+  font-size:15px;
+}
+
+.picker div.coach {
+  color:white;
+  font-size:33px;
+  line-height:33px;
+}
+
+.pick-info {
+  float:left;
+  margin-left:38px;
+  width:58%;
+}
+
+.picker div.pick-instruct {
+  position: absolute;
+  width:440px;
+  bottom:3px;
+  left:50%;
+  margin-left:-220px;
+  color:white;
+  font-size:18px;
+  line-height:33px;
+  background-color:#0a384e;
+  border: 1px solid grey;
+  border-radius:18px;
+}
+.pick-response-unset {
+  position: absolute;
+  right:38px;
+  top:38px;
+}
+.pick-response {
+  position: absolute;
+  right:8px;
+  top:38px;
+}
+.picker .pick-profile {
+  position: absolute;
+  left:8px;
+  top:8px;
+  width:80px;
+}
+.picker .pick-profile img {
+  width:98px;
+  height:98px;
+  border:2px solid white;
+  border-radius:98px;
+  display:none;
+}
+.picker .schedule-set, .picker.coach .pick-instruct {
+  display:none;
+}
+
+.picker.coach .pick-profile img, .picker.coach .schedule-set, .picker.coach .div.coach {
+  display:block;
+}
+.more-sessions {
+  margin-top:33px;
+}
+.picker.next {
+  margin: 58px 38px 33px 33px;
+  padding: 0px 8px 8px 8px;
+  width:90%;
+  height:170px;
+  border: 2px solid #aaa;
+  border-radius:8px;
+  background:#444;
+  text-align:center;
+}
+.picker.sessions {
+    margin: 33px 0 33px 0;
+}
+.picker .unset {
+  position: absolute;
+  right:8px;
+  top:33px;
+  width:80px;
+}
+.picker .countdown {
+  position: absolute;
+  right:38px;
+  top:58px;
+}
+.picker .pick-profile.next {
+  position: absolute;
+  left:17px;
+  top:33px;
+  width:80px;
+}
+h3.current-sessions {
+  margin-top:18px;
+}
+
+.btn-picker {
+	display: inline-block;
+  margin: 0 33px 0 0;
+	padding: 15px 8px 15px 8px;
+	border-radius: 5px;
+  cursor:pointer;
+	background-color: #41baec;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; box-sizing: border-box;
+  -webkit-transition: background .4s;
+  -o-transition: background .4s;
+  transition: background .4s;
+ }
+
+.btn-picker:hover { background-color: #219dd0; }
+
+.a-picker-unset {
+  color: red;
+  font-size:18px;
+}
+
+.lessons-schedule-more {
+  width:100%;
+  text-align:center;
+  padding: 8px 0 8px 0;
+}
+
+.pick-response-start {
+  position: absolute;
+  right:8px;
+  top:33px;
+}
+
+h3.next-lesson {
+    color: black;
+    margin:0;
+}

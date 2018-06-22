@@ -1,0 +1,116 @@
+/* ------------------------------------------------------------ *\
+	List Images
+\* ------------------------------------------------------------ */
+
+.list-images { overflow: hidden; padding: 0; margin-right: -40px; font-size: 0; list-style: none outside none; }
+.list-images li { display: inline-block; width: 118px; margin: 0 40px 38px 0; vertical-align: top; }
+.list-images a { display: block; }
+.list-images figure { position: relative; margin: 0; }
+.list-images img { width: 100%; height: auto; }
+
+/* ------------------------------------------------------------ *\
+	List Images Alt
+\* ------------------------------------------------------------ */
+
+.list-images-alt { padding: 0; margin-right: -15px; list-style: none outside none; }
+.list-images-alt li { float: left; width: 100px; margin: 0 15px 10px 0; }
+.list-images-alt img { width: 100%; height: auto; }
+
+/* ------------------------------------------------------------ *\
+	List Meta
+\* ------------------------------------------------------------ */
+
+.list-meta { overflow: hidden; padding: 0; margin: 0; list-style: none outside none; font-family: 'Open Sans Hebrew', sans-serif; }
+.list-meta li { position: relative; float: left; }
+.list-meta li + li { margin-left: 9px; padding-left: 11px; }
+.list-meta li + li:before { content: ''; position: absolute; top: 50%; left: 0; width: 1px; height: 12px; background-color: #a1a1a1; margin-top: -6px; }
+.list-meta p { margin: 0; font-size: 12px; line-height: 1.5; color: #4c4c4c; font-weight: 300; }
+.list-meta strong { font-weight: 700; }
+
+/* ------------------------------------------------------------ *\
+	List Tags
+\* ------------------------------------------------------------ */
+
+.list-tags { overflow: hidden; margin: 0 0 22px; padding: 0; list-style: none outside none; }
+.list-tags:last-child { margin-bottom: 0; }
+.list-tags li { float: left; font-family: 'Open Sans Hebrew', sans-serif; font-size: 18px; line-height: 2.56; }
+.list-tags li + li { margin-left: 10px; }
+.list-tags a { display: block; padding: 0 18px; background-color: #dadada; color: #4c4c4c; text-decoration: none; }
+.list-tags a:hover { padding: 0 16px; background-color: #ffa72b; color: #fff; font-weight: 700; }
+
+/* ------------------------------------------------------------ *\
+	List Btns
+\* ------------------------------------------------------------ */
+
+.list-btns { overflow: hidden; padding: 30px 0 0; margin: 0 -18px 0 0; list-style: none outside none; }
+.list-btns li { float: left; margin-right: 18px; }
+
+/* ------------------------------------------------------------ *\
+	List Info Diagram
+\* ------------------------------------------------------------ */
+
+.list-info-diagram { overflow: hidden; padding: 0; list-style: none outside none; }
+.list-info-diagram li { float: left; width: 50%; font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 1; color: #9fafbe; font-weight: 700; text-align: center; }
+.list-info-diagram .orange { color: #f08600; }
+.list-info-diagram .blue { color: #4fa5f9; }
+.list-info-diagram span { display: block; margin-top: 8px; font-size: 32px; line-height: 1.31; color: #4a5c72; font-weight: 300; }
+
+/* ------------------------------------------------------------ *\
+	List Question Meta
+\* ------------------------------------------------------------ */
+
+.list-question-meta { padding: 0; margin: 0; font-size: 0; list-style: none outside none; }
+.list-question-meta li { display: inline-block; font-family: 'Open Sans', sans-serif; font-size: 16px; color: #99afbf; font-weight: 600; font-style: italic; vertical-align: middle; }
+.list-question-meta i { font-size: 24px; color: #4fa5f9; }
+.list-question-meta li + li { margin-left: 45px; }
+
+/* ------------------------------------------------------------ *\
+	List Answers
+\* ------------------------------------------------------------ */
+
+.list-answers { padding: 0 20px; margin: 0; list-style: none outside none; }
+.list-answers li { display: table; width: 100%; min-height: 40px; padding: 0 20px; border: 1px solid #d5e2e8; border-radius: 4px; margin-bottom: 10px; background-color: #fafbfd; vertical-align: middle; }
+.list-answers li:last-child { margin-bottom: 0; }
+.list-answers a { display: table-cell; font-family: 'Open Sans', sans-serif; font-size: 18px; line-height: 1; color: #465d74; font-weight: 400; text-decoration: none; vertical-align: middle; }
+.list-answers li:hover { border-color: #4fa5f9; }
+.list-answers li.disable,
+.list-answers li.disable:hover { border-color: #d5e2e8; background-color: #fafbfd; }
+.list-answers li.disable a,
+.list-answers li.disable:hover a { color: #d5e2e8; }
+
+/* ------------------------------------------------------------ *\
+	List User Sklls
+\* ------------------------------------------------------------ */
+
+.list-user-skills { overflow: hidden; padding: 0; margin: 0 -20px 24px 0; list-style: none outside none; } 
+.list-user-skills li { float: left; width: 340px; margin: 0 20px 11px 0; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.31; color: #4a5c73; } 
+.list-user-skills p { margin: 0; } 
+.list-user-skills span,
+.list-user-skills i { color: #a0afbe; } 
+.list-user-skills i { margin-right: 2px; } 
+
+/* ------------------------------------------------------------ *\
+	List Education
+\* ------------------------------------------------------------ */
+
+.list-education { padding: 0; margin: 0 0 55px; list-style: none outside none; } 
+.list-education li { margin-bottom: 17px; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.31; } 
+.list-education h6 { margin: 0 0 6px; font-size: 16px; color: #4a5c73; font-weight: 400; } 
+.list-education h6 em { font-weight: 700; font-style: italic; } 
+.list-education p { margin: 0; color: #99afbf; font-weight: 400; } 
+
+/* ------------------------------------------------------------ *\
+	List  Posts
+\* ------------------------------------------------------------ */
+
+.list-posts {  padding: 0; margin: 0; list-style: none outside none; }
+.list-posts li { margin-bottom: 20px; font-family: 'Open Sans', sans-serif; font-size: 0; }
+.list-posts figure { display: inline-block; width: 62px; height: 62px; margin: 0 20px 0 0; vertical-align: middle; }
+.list-posts figure img { width: 100%; height: auto; }
+.list-posts div { overflow: hidden; display: inline-block; width: 100%; max-width: 558px; font-size: 16px; line-height: 1.31; color: #465d74; vertical-align: middle; }
+.list-posts h6 { float: left; margin: 0 0 4px; font-size: 16px; line-height: 1.31; color: #4a5c73; font-weight: 700; }
+.list-posts .date { float: right; margin: 0; color: #99afbf; }
+.list-posts .date i { color: #4fa5f9; }
+.list-posts p { clear: both; line-height: 1.75; }
+.list-posts a { display: block; text-decoration: none; -webkit-transition: opacity .4s; -o-transition: opacity .4s; transition: opacity .4s; }
+.list-posts a:hover { opacity: .7; }

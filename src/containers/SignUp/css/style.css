@@ -1,0 +1,211 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #111;
+  background-repeat: no-repeat;
+}
+
+.box {
+  background: url('../media/spacebacklarge.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.signupSection {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.curtain {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(20, 20, 20, 0.8);
+}
+
+.languagePicks {
+  z-index: 999999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 380px;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  background: rgba(20, 20, 20, 1);
+  padding: 33px;
+  overflow: auto;
+}
+.languagePicks .headline {
+  font-size: 33px;
+  color: white;
+  margin: 8px;
+}
+
+.languagePicks .lang {
+  color: #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 3px 8px 3px 0;
+  height: 33px;
+  line-height: 33px;
+  padding: 3px 8px;
+  cursor: pointer;
+  border: 1px solid #0ab4b4;
+  border-top: 1px solid #333;
+  border-left:  1px solid #333;
+  border-right:  1px solid #333;
+}
+
+.languagePicks .lang:hover {
+  border: 1px solid #0ab4b4;
+  color: white;
+}
+
+.info {
+  width: 45%;
+  background: rgba(20, 20, 20, 0.8);
+  padding: 30px 0;
+  border-right: 5px solid rgba(30, 30, 30, 0.8);
+}
+.info h2 {
+  padding-top: 30px;
+  font-weight: 300;
+}
+.info p {
+  font-size: 18px;
+}
+.info .icon {
+  font-size: 8em;
+  padding: 20px 0;
+  color: #0ab4b4;
+}
+
+
+.signupForm {
+  width: 70%;
+  padding: 30px 0;
+  background: rgba(20, 40, 40, 0.8);
+  transition: .2s;
+}
+.signupForm h2 {
+  font-weight: 300;
+}
+
+.inputFields, select, option {
+  margin: 15px 0 33px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #0ab4b4;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, 0.2);
+  color: white;
+  outline: none;
+}
+
+.category {
+  margin: 3px 0;
+  font-size: 16px;
+  color: #999;
+}
+
+.language {
+  position: relative;
+  margin: 15px 18px 8px 0;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #0ab4b4;
+  border-top: 1px solid #333;
+  border-left:  1px solid #333;
+  border-right:  1px solid #333;
+  background: rgba(20, 20, 20, 0.2);
+  color: white;
+  display: inline-block;
+}
+
+.language .remove {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width:18px;
+  height:18px;
+  border-radius: 18px;
+  border: 1px solid #333;
+  background-color: #000;
+  display: none;
+  cursor: pointer;
+}
+
+.language .remove {
+  font-size: 10px;
+  color: #999;
+}
+.language .remove i {
+  margin: 3px 0 0 5px;
+}
+.language .remove:hover i {
+  color: red;
+}
+
+.language:hover .remove {
+  display:block;
+}
+
+
+.signupForm table {
+  width: 100%;
+}
+
+.signupForm td {
+  text-align:left;
+  padding-left: 8px;
+}
+.noBullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+.signup-btn {
+  border: 1px solid #0ab4b4;
+  background: rgba(20, 20, 20, 0.6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  transition: .4s;
+}
+.signup-btn.active:hover {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 10px 80px;
+}
+
+.signup-btn.active {
+  color: white;
+  cursor: pointer;
+}
+
+.signup-btn.inactive {
+  color: #999;
+  cursor: not-allowed;
+}

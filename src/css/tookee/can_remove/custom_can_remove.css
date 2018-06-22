@@ -1,0 +1,87 @@
+
+
+/* popup functions */
+
+.lingualy_popup {
+	position:fixed;
+	left:50%;
+	margin: 0 0 0 -40px;
+	width:80px;
+	height:80px;
+	border:1px solid #bfbfbf;
+	border-radius:4px;
+	box-shadow:0 0 10px #7f7f7f;
+	-webkit-box-shadow:0 0 10px #7f7f7f;
+	background:#f7f7f7;
+	overflow:hidden;
+	z-index:999999999999;
+}
+
+.lingualy_popup.top {
+	top:3px;
+}
+.lingualy_popup.bottom {
+	bottom:3px;
+}
+
+/* part of speech */
+.pos-display {
+	padding-top:8px;
+	font:10px/1.37 "Open Sans", Arial, Helvetica, sans-serif;
+	height:15px;
+	display:none;
+	clear:both;
+}
+
+.poslighted, .canonical {
+    text-decoration: none;
+    border-bottom: 1px dotted purple;
+    color: #ff5c00;
+}
+
+
+.canonical {
+	font-size:15px;
+}
+
+.click-on {
+	font-size:15px;
+}
+
+#wordflyer {
+	display:none;
+	color:#fff;
+	position:fixed;
+	padding:2px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	background-color: rgba(179, 179, 179, 0.8);
+	z-index:999999999999999999999999999;
+	font-size:12px;	
+}
+
+
+/* article markings */
+
+.lya {
+	border-bottom:2px solid yellow;
+}
+
+.lya.familiar {
+	border-bottom:none;
+}
+
+.highlight-collected-mastered {
+	background-color:none;
+	border:1px dotted orange;;
+	border-radius:5px;
+	cursor:pointer;
+}
+
+.highlight-collected-unmastered {
+	background-color:orange;
+	color:#333333;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+}
