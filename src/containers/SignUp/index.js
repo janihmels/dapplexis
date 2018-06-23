@@ -11,6 +11,7 @@ import * as nebulas from '../../nebulas';
 
 // --------------------------------------------------------------
 import './css/style.css';
+import bars from './media/bars.gif';
 
 // --------------------------------------------------------------
 // --------------------------------------------------------------
@@ -23,7 +24,7 @@ class SignUp extends Component {
       nick: '',
       languages: [],
       pickLanguage: false,
-      connecting: false
+      transid: null
     };
   }
 
@@ -64,10 +65,16 @@ class SignUp extends Component {
     const { nick, languages } = this.state;
     if(nick.length && languages.length) {
       const user = {nick, languages};
-      nebulas.register(user, ()=> {
-        this.props.signIn(user);
-        window.location.href="/.";
-      })  
+      nebulas.register(
+        user, 
+        transid => {
+          this.setState({transid});
+        },
+        () => {
+          this.props.signIn(user);
+          window.location.href="/.";
+        }
+      )  
     }
   }
   // --------------------------------------------------------------
@@ -80,9 +87,26 @@ class SignUp extends Component {
       this.state.nick.length;
     const signupButtonClass = 
       `signup-btn ${isReady ? 'active' : 'inactive'}`;
+    const { transid } = this.state;
+
     return (
 
+
       <div className="sign-up">
+        {
+          transid ? (
+            <div>
+              <div className="curtain" />
+              <div className="please-wait">
+                <img src={bars} /><br />
+                Processing transaction
+                <div className="trans-id">
+                  <i>{transid}</i>
+                </div>
+              </div>
+            </div>
+          ) : null
+        }
         
         <LanguagePicker 
           addLanguage = {this.addLanguage}
@@ -137,7 +161,7 @@ class SignUp extends Component {
                 type="button" 
                 className={signupButtonClass} 
                 alt="Register" 
-                value="Register" 
+                value={ this.state.transid ? '...' : 'Register' } 
                 onClick = {this.register}
               />
             </li>
