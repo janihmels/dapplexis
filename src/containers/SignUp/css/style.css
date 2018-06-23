@@ -209,3 +209,28 @@ body {
   color: #999;
   cursor: not-allowed;
 }
+
+.please-wait {
+  position: absolute;
+  top: 98px;
+  left: 50%;
+  width: 380px;
+  margin-left: -190px;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+  background: rgba(20, 20, 20, 1);
+  z-index: 999999;
+  line-height: 18px;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 18px;
+}
+
+.please-wait img {
+  margin: 8px auto;
+}
+
+.please-wait .trans-id {
+  margin: 8px auto;
+  color: #0ab4b4;
+  font-weight: bold;
+}

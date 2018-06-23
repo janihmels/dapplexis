@@ -7,7 +7,8 @@ var neb = new Neb.Neb();
 neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
 const dappAddress = "n1pM1Zzmdby2MJG2iJd4EvgDd52tUaVcH4F";
 
-export const register = (user, callback) => {
+export const register = (user, transStarted, transFinished) => {
+    
     const to = dappAddress;
     const value = "0";
     const callFunction = "register";
@@ -16,13 +17,14 @@ export const register = (user, callback) => {
     nebPay.call(to, value, callFunction, callArgs, {    
         listener: (serialNum, resp)=>{
             const hash_value = resp.txhash;    
+            transStarted(hash_value);
             let reload_trans = setInterval(function(){
                 neb.api.getTransactionReceipt({hash: hash_value}).then(function(receipt) {        
                     const result_trans = receipt.status;        
                     if (result_trans == 1) {
                         console.log("success");
                         clearInterval(reload_trans); 
-                        callback();  
+                        transFinished();  
                     } else if (result_trans == 2) {
                         console.log("pending");
                     } else {
@@ -69,6 +71,7 @@ export const getUser = callback => {
     //if(user) user = Object.keys(user).length ? user : null;
     //let user = {nick: 'Willi', langauges:['en']};
     //callback(user);
+
 };
 
 export const unregister = callback => {
