@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import languages from '../../config/languages';
+import './picker.css';
 
 // --------------------------------------------------
 // --------------------------------------------------

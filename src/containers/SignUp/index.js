@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // --------------------------------------------------------------
-import LanguagePicker from "./LanguagePicker";
+import LanguagePicker from "../LanguagePicker/";
 // --------------------------------------------------------------
 import { signIn } from '../../redux/store/actions';
 // --------------------------------------------------------------
@@ -72,7 +72,7 @@ class SignUp extends Component {
         },
         () => {
           this.props.signIn(user);
-          window.location.href="/.";
+          window.location.href="./my";
         }
       )  
     }
@@ -149,7 +149,7 @@ class SignUp extends Component {
                         />
                     )
                   }
-                  <div className="language" onClick={this.openPopup}>+</div>
+                  <div className="language add-language" onClick={this.openPopup}>+</div>
                 </td>
               </tr>
             </tbody>
