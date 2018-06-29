@@ -12,6 +12,7 @@ import reducers from './reducers';
 // -------------------------------------------------------------
 import SignUp from './containers/SignUp';
 import My from './containers/My';
+import Community from './containers/Community';
 import New from './containers/New';
 import View from './containers/View';
 import Frame from './Frame/';
@@ -46,6 +47,7 @@ const doRender = (user) => {
           <Frame>
             <Switch>
               <Route path="/my" component={My} />
+              <Route path="/community" component={Community} />
               <Route path="/view" component={View} />
               <Route path="/new" component={New} />
             </Switch>

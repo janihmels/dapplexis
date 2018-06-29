@@ -3,6 +3,7 @@
 const initialState = {
   user: null,
   mine: [],
+  community: [],
   loadstatus: '',
   addnew: {
     source: null,
@@ -35,6 +36,10 @@ export default function( state = initialState, action ) {
     // --------------------------------------------------------------
     case "SET_MY_PROJECTS":
       return { ...state, mine: action.projects };
+      break;
+    // --------------------------------------------------------------
+    case "SET_COMM_PROJECTS":
+      return { ...state, community: action.projects };
       break;
     // --------------------------------------------------------------
     case "SET_NEW_PICK":

@@ -1,0 +1,46 @@
+
+.comm-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 450px;
+    text-align: center;
+    color: white;
+    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+    background: rgba(20, 40, 40, 0.5);
+}
+
+.comm-main table {
+    padding: 18px;
+    width: 100%;
+}
+
+.comm-main thead td {
+    color: #ccc;
+    font-weight: bold;
+    background-color: #333;
+    padding: 8px;
+}
+
+.comm-main tbody td {
+    margin: 15px 0 33px 0;
+    font-size: 16px;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #444;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, 0.2);
+    color: #ccc;
+    outline: none;
+    cursor: pointer;
+}
+.comm-main tbody tr:hover {
+    background: rgba(20, 20, 20, 1);
+}
+.comm-main tbody tr:hover td {
+    color: #0ab4b4;
+}

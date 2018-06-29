@@ -1,11 +1,16 @@
 
 
 export const register = (user, transStarted, transFinished) => {
+    const commprojects = [
+        {id: 989, source: 'en', target: 'fr', strings: ['bark','bite','wag']},
+        {id: 899, source: 'en', target: 'es', strings: ['find','ignore','decide']}
+    ];
     transStarted('udshsdiuhsuhds');
     setTimeout(
         ()=> {
             localStorage.setItem('user',JSON.stringify(user));
             localStorage.setItem('projects',JSON.stringify([]));
+            localStorage.setItem('commprojects',JSON.stringify(commprojects));
             transFinished();         
         }
         ,900
@@ -33,10 +38,12 @@ export const getUserProjects = callback => {
 }
 
 export const getCommunityProjects = callback => {
-    const projects = [
-        {id: 'eewiwei',source:'en', target:'es', trans: 9, total: 38}
-    ];
-    callback(projects);
+    setTimeout(
+        () => {
+            let projects = JSON.parse(localStorage.getItem('commprojects'));
+            callback(projects);        
+        }
+    , 900);
 }
 
 export const submitNew = (source, target, strings, callback) => {
