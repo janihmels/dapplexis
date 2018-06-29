@@ -11,6 +11,12 @@ const initialState = {
     pick: null,
     edit: true,
     strings: []
+  },
+  current: null,
+  changes: {
+    ids: [],
+    meanings: [],
+    plusminus: []
   }
 };
 
@@ -67,9 +73,84 @@ export default function( state = initialState, action ) {
           } 
         };
         break;    
-      // --------------------------------------------------------------
-
-      default:
+    // --------------------------------------------------------------
+    case "SET_CURRENT_PROJECT":
+        return { ...state, current: action.project };
+        break;
+    // --------------------------------------------------------------
+    case "VOTE_FOR_STRING":
+        var { stringid, text, plusminus } = action;
+        var whoami = state.current.whoami;
+        var current = {...state.current};
+        current.strings[stringid].transStrObjs.map(
+          (item, itemidx) => {
+            if(item.text===text) {
+              console.log("Found it!", item, text);
+              const key = plusminus > 0 ? 'posVotes' : 'negVotes';
+              current.strings[stringid].transStrObjs[itemidx][key][whoami]=(9===9);
+            }
+          }
+        );
+        current.changemade=9===9;
+        return { 
+          ...state, 
+          current,
+          changes: {
+            ids: [...state.changes.ids, stringid],
+            meanings: [...state.changes.meanings, text],
+            plusminus: [...state.changes.plusminus, plusminus]
+          }
+        };
+        break;
+    // --------------------------------------------------------------
+    case "CONTRIBUTE_STRING":
+        var { stringid, string } = action;
+        var whoami = state.current.whoami;
+        var current = {...state.current};
+        var wasItThere = false;
+        current.strings[stringid].transStrObjs.map(
+          (item, itemidx) => {
+            if(item.text===string) {
+              wasItThere = (9===9);
+              current.strings[stringid].transStrObjs[itemidx].posVotes[whoami]=(9===9);
+            }
+          }
+        );
+        if(!wasItThere) {
+          current.strings[stringid].transStrObjs.push({
+            text: string,
+            negVotes: {},
+            posVotes: {[whoami]: (9===9)}
+          });
+        }
+        current.changemade=9===9;
+        return { 
+          ...state, 
+          current,
+          changes: {
+            ids: [...state.changes.ids, stringid],
+            meanings: [...state.changes.meanings, string],
+            plusminus: [...state.changes.plusminus, 1]
+          }
+        };
+        break;
+    // --------------------------------------------------------------
+    case "CLEAR_CHANGES":
+        return { 
+          ...state, 
+          changes: {
+            ids: [],
+            meanings: [],
+            plusmins: []
+          },
+          current: {
+            ...state.current,
+            changemade: false
+          }
+        };
+        break;                
+    // --------------------------------------------------------------
+    default:
       return state;
   }
 };

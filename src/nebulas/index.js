@@ -57,3 +57,56 @@ export const submitNew = (source, target, strings, callback) => {
         }
     , 3300);
 }
+
+export const getProject = (pid, callback) => {
+
+    const project = {
+        pid: 989,
+        whoami: 33,
+        source: 'en',
+        target: 'fr',
+        strings: {
+            403: { 
+                id: 403,
+                text: 'Bird',
+                transStrObjs: [{
+                        text: 'Tsipor',
+                        posVotes: { 33:true },
+                        negVotes: { 38:true, 98:true }
+                    }, {
+                        text: 'Sus',
+                        posVotes: { 38:true, 98:true, 989:true },
+                        negVotes: { 99:true }
+                    }]
+            },
+            388: {
+                id: 388,
+                text: 'Chipmunk',
+                transStrObjs: [{
+                        text: 'Snai',
+                        posVotes: { 33:true },
+                        negVotes: { 38:true, 98:true }
+                    }, {
+                        text: 'Pil',
+                        posVotes: { 38:true, 98:true, 989:true },
+                        negVotes: { 99:true }
+                    }]
+            }
+        }
+    };
+
+    setTimeout( ()=> {
+        callback(project);
+    },900);
+}
+
+
+
+export const submitChanges = (changes, callback) => {
+    console.log("Here are the changes made:", changes);
+    setTimeout(
+        () => {
+            callback();
+        }
+    , 3300);
+}
