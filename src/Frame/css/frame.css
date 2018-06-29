@@ -45,6 +45,26 @@
   display: inline-block;
 }
 
+.main .header .navigate {
+  margin: 18px 0 0 58px;
+  display: inline-block;
+  float: left;
+}
+
+.main .header .navigate a {
+  color: #ccc;
+}
+
+.main .header .navigate a.active {
+  color: white;
+  font-weight: bold;
+}
+
+.main .header .navigate a + a::before {
+  content: ' | '
+}
+
+
 .main .header .user {
   float:right;
   margin: 18px;
@@ -56,3 +76,17 @@
   font-weight: bold;
 }
 
+.main .clear {
+  clear: both;
+}
+
+.main .header .load-status {
+  margin: 18px 0 0 8px;
+  display: inline-block;
+  float: left;
+}
+.main .header .load-bars  {
+  margin: 18px 0 0 88px;
+  display: inline-block;
+  float: left;
+}

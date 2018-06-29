@@ -1,0 +1,96 @@
+
+.new-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 450px;
+    text-align: center;
+    color: white;
+    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+    background: rgba(20, 40, 40, 0.5);
+    overflow: scroll;
+}
+
+.new-main table {
+    padding: 18px;
+    width: 100%;
+}
+
+.new-main thead td {
+    color: #ccc;
+    font-weight: bold;
+    background-color: #333;
+    padding: 8px;
+}
+
+.new-main tbody td {
+    margin: 8px 0 33px 0;
+    font-size: 16px;
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #444;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, 0.2);
+    color: #ccc;
+    outline: none;
+    cursor: pointer;
+}
+.new-main tbody tr:hover td {
+    color: #0ab4b4;
+}
+
+.new-main textarea {
+    margin: 8px 0 8px 0;
+    font-size: 16px;
+    padding: 3px;
+    width: 300px;
+    height: 58px;
+    border: 1px solid #444;
+    background: rgba(20, 20, 20, 0.2);
+    color: #ccc;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.new-main textarea:hover {
+    background: rgba(20, 20, 20, 0.7);
+}
+
+.new-main .submit-container {
+    position: relative;
+    width: 100%;
+
+}
+
+.new-main .submit-btn {
+    position: relative;
+    border: 1px solid #0ab4b4;
+    background: rgba(20, 20, 20, 0.6);
+    font-size: 18px;
+    color: white;
+    margin: 18px auto 18px auto;
+    padding: 10px 50px;
+    transition: .4s;
+    cursor: pointer;
+    display: inline-block;
+  }
+.new-main .submit-btn:hover {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 10px 80px;
+  }
+
+  .new-main .submit-btn.active {
+    color: white;
+    cursor: pointer;
+  }
+  
+  .new-main .submit-btn.inactive {
+    color: #999;
+    cursor: not-allowed;
+  }
+  

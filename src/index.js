@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // -------------------------------------------------------------
 import './index.css';
@@ -10,7 +11,10 @@ import './css/font-awesome.css';
 import reducers from './reducers';
 // -------------------------------------------------------------
 import SignUp from './containers/SignUp';
-import Home from './containers/Home';
+import My from './containers/My';
+import New from './containers/New';
+import View from './containers/View';
+import Frame from './Frame/';
 // -------------------------------------------------------------
 import * as nebulas from './nebulas/';
 // -------------------------------------------------------------
@@ -19,7 +23,7 @@ import { unregister } from './registerServiceWorker';
 // -------------------------------------------------------------
 const store = createStore( 
   reducers,
-  window.devToolsExtension && window.devToolsExtension()
+  applyMiddleware(thunk)
 );
 
 //let { user } = store.getState().store;
@@ -39,11 +43,13 @@ const doRender = (user) => {
     ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter>
-          <div>
+          <Frame>
             <Switch>
-              <Route path="/" component={Home} />
+              <Route path="/my" component={My} />
+              <Route path="/view" component={View} />
+              <Route path="/new" component={New} />
             </Switch>
-          </div>
+          </Frame>
         </BrowserRouter>
       </Provider>,
       root
