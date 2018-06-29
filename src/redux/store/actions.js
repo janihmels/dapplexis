@@ -60,6 +60,13 @@ export const setMyProjects = projects => {
   };
 }
 // ---------------------------------------------------------------------------------
+export const setCommProjects = projects => {
+  return {
+    type: "SET_COMM_PROJECTS",
+    projects
+  };
+}
+// ---------------------------------------------------------------------------------
 export const setNewPick = pick => {
   return {
     type: "SET_NEW_PICK",
@@ -98,4 +105,13 @@ export const submitNew = (source, target, strings, callback) => dispatch => {
       callback();
     }
   );
+}
+
+// ---------------------------------------------------------------------------------
+export const fetchCommProjects = projects => dispatch => {
+  dispatch(setLoadStatus('Getting data...'));
+  nebulas.getCommunityProjects( projects => {
+    dispatch(setCommProjects(projects));
+    dispatch(setLoadStatus(''));
+  });
 }

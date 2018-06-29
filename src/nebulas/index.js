@@ -5,10 +5,9 @@ var nebPay = new NebPay();
 var neb = new Neb.Neb();
 //var httpRequest = new HttpRequest.HttpRequest();
 neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
-const dappAddress = "n1pCcYHfJqJLmzJ5SbqXYAW8NMxdxnz8JgR";
+const dappAddress = "n1t1SnVVZuPXE5ZenJubsXxUrEUfhs3Dm6w";
 
-export const register = (user, transStarted, transFinished) => {
-    
+export const register = (user, transStarted, transFinished) => {    
     const to = dappAddress;
     const value = "0";
     const callFunction = "register";
@@ -32,6 +31,18 @@ export const register = (user, transStarted, transFinished) => {
                     }
             })}, 1000);
             
+    // const commprojects = [
+    //     {id: 989, source: 'en', target: 'fr', strings: ['bark','bite','wag']},
+    //     {id: 899, source: 'en', target: 'es', strings: ['find','ignore','decide']}
+    // ];
+    // transStarted('udshsdiuhsuhds');
+    // setTimeout(
+    //     ()=> {
+    //         localStorage.setItem('user',JSON.stringify(user));
+    //         localStorage.setItem('projects',JSON.stringify([]));
+    //         localStorage.setItem('commprojects',JSON.stringify(commprojects));
+    //         transFinished();         
+
         }
     });
 }
@@ -47,7 +58,7 @@ export const getUser = callback => {
         qrcode: {showQRCode: false},
         listener:      function (serialNumber, resp) {
             console.log(resp);
-            if (resp.result != 'null') {
+            if (resp.result != 'null' && resp.execute_err === '') {
                 var result = JSON.parse(resp.result);
                 const user = {"nick": result.props.nick, languages: result.languages};
                 console.log("--------------bbb");
@@ -124,10 +135,34 @@ export const getUserProjects = callback => {
 }
 
 export const getCommunityProjects = callback => {
-    const projects = [
-        {id: 'eewiwei',source:'en', target:'es', trans: 9, total: 38}
-    ];
-    callback(projects);
+    const to = dappAddress;
+    const value = "0";
+    const callFunction = "getProjectsForUser";
+    const callArgs = "[]"; 
+    nebPay.simulateCall(to, value, callFunction, callArgs, { 
+        qrcode: {showQRCode: false},
+        listener:      function (serialNumber, resp) {
+            console.log(resp);
+            if (resp.result != 'null') {
+                var result = JSON.parse(resp.result);
+                console.log("----------HTT");
+                console.log(result);
+                let outProjects = [];
+                for (let i=0; i<result.length; ++i) {
+                    const proj = result[i];
+                    outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds});
+                }
+                callback(outProjects);
+            } else {
+                callback(null);
+            }
+    }});
+    // setTimeout(
+    //     () => {
+    //         let projects = JSON.parse(localStorage.getItem('commprojects'));
+    //         callback(projects);        
+    //     }
+    // , 900);
 }
 
 export const submitNew = (source, target, strings, callback) => {
