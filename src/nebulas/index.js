@@ -2,8 +2,8 @@
 
 export const register = (user, transStarted, transFinished) => {
     const commprojects = [
-        {id: 989, source: 'en', target: 'fr', strings: ['bark','bite','wag']},
-        {id: 899, source: 'en', target: 'es', strings: ['find','ignore','decide']}
+        {id: 989, source: 'en', target: 'fr', strings: ['bark','bite','wag'], ntranslated: 3},
+        {id: 899, source: 'en', target: 'es', strings: ['find','ignore','decide'], ntranslated: 9}
     ];
     transStarted('udshsdiuhsuhds');
     setTimeout(
@@ -51,7 +51,7 @@ export const submitNew = (source, target, strings, callback) => {
     const id = Date.now();
     setTimeout(
         () => {
-            projects.push({id, source, target, strings});
+            projects.push({id, source, target, strings, ntranslated: 9});
             localStorage.setItem('projects',JSON.stringify(projects));
             callback(projects);
         }
