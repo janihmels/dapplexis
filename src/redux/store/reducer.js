@@ -141,7 +141,7 @@ export default function( state = initialState, action ) {
           changes: {
             ids: [],
             meanings: [],
-            plusmins: []
+            plusminus: []
           },
           current: {
             ...state.current,
