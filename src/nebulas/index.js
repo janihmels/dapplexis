@@ -125,8 +125,7 @@ export const getUserProjects = callback => {
                             }
                         }
                     }
-                    console.log(numTranslated);
-                    outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds});
+                    outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds, ntranslated: numTranslated});
                 }
                 callback(outProjects);
             } else {
@@ -167,8 +166,8 @@ export const getCommunityProjects = callback => {
                             }
                         }
                     }
-                    console.log(numTranslated);
-                    outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds});
+                    
+                    outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds, ntranslated: numTranslated});
                 }
                 callback(outProjects);
             } else {

@@ -10,7 +10,8 @@ export default class Row extends Component {
 
   render() {
     const { item } = this.props;
-    const trans = 0, total = item.strings.length;
+    const trans = item.ntranslated;
+    const total = item.strings.length;
 
     return (
       <tr onClick={this.viewItem}>
