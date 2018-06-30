@@ -143,7 +143,7 @@ class Translation extends Component {
 
   render() {
     const { trs } = this.props;
-    const diff = Object.keys(trs.posVotes).length - Object.keys(trs.negVotes).length;
+    const diff = Object.keys(trs.posVotes).length - Object.keys(trs.negVotes).length;    
     const inactive = 
       trs.posVotes.hasOwnProperty(whoami) || 
       trs.negVotes.hasOwnProperty(whoami)     

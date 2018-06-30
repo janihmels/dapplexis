@@ -4,8 +4,10 @@ import NebPay from "nebpay.js";
 var nebPay = new NebPay();
 var neb = new Neb.Neb();
 //var httpRequest = new HttpRequest.HttpRequest();
-neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
-const dappAddress = "n1kNTbULrWPxPVFpQfoYGhby5cZXV86cxKg";
+//neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
+
+neb.setRequest(new HttpRequest.HttpRequest("https://testnet.nebulas.io")); //testneb1
+const dappAddress = "n1zs7C3cqRZq2UaL7zu3mEMXkwfj8Q2CH7C";
 
 export const register = (user, transStarted, transFinished) => {    
     const to = dappAddress;
@@ -21,13 +23,13 @@ export const register = (user, transStarted, transFinished) => {
                 neb.api.getTransactionReceipt({hash: hash_value}).then(function(receipt) {        
                     const result_trans = receipt.status;        
                     if (result_trans == 1) {
-                        console.log("success");
+                        console.log("call to nebpay completed successfully");
                         clearInterval(reload_trans); 
                         transFinished();  
                     } else if (result_trans == 2) {
-                        console.log("pending");
+                        console.log("call to nebapy is pending");
                     } else {
-                        console.log("fail")
+                        console.log("call to nebpay failed")
                     }
             })}, 1000);
             
@@ -57,12 +59,9 @@ export const getUser = callback => {
     nebPay.simulateCall(to, value, callFunction, callArgs, { 
         qrcode: {showQRCode: false},
         listener:      function (serialNumber, resp) {
-            console.log(resp);
             if (resp.result != 'null' && resp.execute_err === '') {
                 var result = JSON.parse(resp.result);
                 const user = {"nick": result.props.nick, languages: result.languages};
-                console.log("--------------bbb");
-                console.log(user);
                 callback(user);
             } else {
                 callback(null);
@@ -79,20 +78,18 @@ export const unregister = callback => {
     nebPay.call(to, value, callFunction, callArgs, {    
         listener: (serialNum, resp)=>{
             
-                console.log("------------------");
-                console.log(resp);
                 const hash_value = resp.txhash;    
                 let reload_trans = setInterval(function(){
                     neb.api.getTransactionReceipt({hash: hash_value}).then(function(receipt) {        
                         const result_trans = receipt.status;        
                         if (result_trans == 1) {
-                            console.log("success");
+                            console.log("call to nebpay completed successfully");
                             clearInterval(reload_trans); 
                             callback();  
                         } else if (result_trans == 2) {
-                            console.log("pending");
+                            console.log("call to nebpay is pending");
                         } else {
-                            console.log("fail")
+                            console.log("call to nebpay failed")
                         }
                 })}, 1000);
                 
@@ -110,11 +107,8 @@ export const getUserProjects = callback => {
     nebPay.simulateCall(to, value, callFunction, callArgs, { 
         qrcode: {showQRCode: false},
         listener:      function (serialNumber, resp) {
-            console.log(resp);
             if (resp.result != 'null') {
                 var result = JSON.parse(resp.result);
-                console.log("----------HTT");
-                console.log(result.projects);
                 let outProjects = [];
                 for (let i=0; i<result.projects.length; ++i) {
                     const proj = result.projects[i];
@@ -142,11 +136,8 @@ export const getCommunityProjects = callback => {
     nebPay.simulateCall(to, value, callFunction, callArgs, { 
         qrcode: {showQRCode: false},
         listener:      function (serialNumber, resp) {
-            console.log(resp);
             if (resp.result != 'null') {
                 var result = JSON.parse(resp.result);
-                console.log("----------HTT");
-                console.log(result);
                 let outProjects = [];
                 for (let i=0; i<result.length; ++i) {
                     const proj = result[i];
@@ -174,21 +165,18 @@ export const submitNew = (source, target, strings, callback) => {
     var callArgs = "[\"" + source + "\",\"" + target + "\"," + JSON.stringify(strings) + "," + jsonProjectDetails + "]";
     nebPay.call(to, value, callFunction, callArgs, {    
         listener: (serialNum, resp)=>{
-            
-            console.log("------------------");
-            console.log(resp);
             const hash_value = resp.txhash;    
             let reload_trans = setInterval(function(){
                 neb.api.getTransactionReceipt({hash: hash_value}).then(function(receipt) {        
                     const result_trans = receipt.status;        
                     if (result_trans == 1) {
-                        console.log("success");
+                        console.log("call to nebpay completed successfully");
                         clearInterval(reload_trans); 
                         getUserProjects(callback);  
                     } else if (result_trans == 2) {
-                        console.log("pending");
+                        console.log("call to nebpay is pending");
                     } else {
-                        console.log("fail")
+                        console.log("call to nebpay failed")
                     }
             })}, 1000);
             
@@ -220,16 +208,15 @@ export const getProject = (pid, callback) => {
     const to = dappAddress;
     const value = "0";
     const callFunction = "getProject";
-    console.log("getProject " + pid);
+    if(isNaN(pid)) {
+        return;
+    }
     const callArgs = "[" + pid + "]"; 
     nebPay.simulateCall(to, value, callFunction, callArgs, { 
         qrcode: {showQRCode: false},
         listener:      function (serialNumber, resp) {
-            console.log(resp);
             if (resp.result != 'null') {
                 var result = JSON.parse(resp.result);
-                console.log("----------HTT");
-                console.log(result);
                 let stringsDict = {};
                 for (let i=0; i<result.stringObjs.length; ++i) {
                     let stringObjId = result.stringObjs[i].id;
@@ -237,8 +224,8 @@ export const getProject = (pid, callback) => {
                     let newTransStringObj = [];
                     for (let key in stringObj.transStringObjs) {
                         if (stringObj.transStringObjs.hasOwnProperty(key)) {           
-                            let transStringObj = stringObj.transStringObjs[key];
-                            newTransStringObj.push(transStringObj)
+                            let [posVotes, negVotes] = stringObj.transStringObjs[key];
+                            newTransStringObj.push({text: key, posVotes: posVotes, negVotes: negVotes})
                         }
                     }
                     stringObj.transStringObjs = newTransStringObj;
@@ -249,7 +236,6 @@ export const getProject = (pid, callback) => {
                                 source: result.sourceLanguage,
                                 target: result.targetLanguage,
                                 strings: stringsDict}
-                console.log(outProj);
                 callback(outProj);
             } else {
                 callback(null);
@@ -303,28 +289,23 @@ export const submitChanges = (changes, callback) => {
     var value = "0";
     var callFunction = "updateProjectStrings";
     
-    console.log(changes);
+    
     var callArgs = JSON.stringify([0, changes.ids, changes.meanings, changes.plusminus]);
-    console.log("-------ddd");
-    console.log(callArgs);
-
+    
     nebPay.call(to, value, callFunction, callArgs, {    
         listener: (serialNum, resp)=>{
-            
-            console.log("------------------");
-            console.log(resp);
             const hash_value = resp.txhash;    
             let reload_trans = setInterval(function(){
                 neb.api.getTransactionReceipt({hash: hash_value}).then(function(receipt) {        
                     const result_trans = receipt.status;        
                     if (result_trans == 1) {
-                        console.log("success");
+                        console.log("call to nebpay completed successfully");
                         clearInterval(reload_trans); 
                         callback();  
                     } else if (result_trans == 2) {
-                        console.log("pending");
+                        console.log("call to nebpay is pending");
                     } else {
-                        console.log("fail")
+                        console.log("call to nebpay failed");
                     }
             })}, 1000);
             
