@@ -5,7 +5,7 @@ var nebPay = new NebPay();
 var neb = new Neb.Neb();
 //var httpRequest = new HttpRequest.HttpRequest();
 neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
-const dappAddress = "n1t1SnVVZuPXE5ZenJubsXxUrEUfhs3Dm6w";
+const dappAddress = "n1kNTbULrWPxPVFpQfoYGhby5cZXV86cxKg";
 
 export const register = (user, transStarted, transFinished) => {    
     const to = dappAddress;
@@ -200,6 +200,139 @@ export const submitNew = (source, target, strings, callback) => {
     //         projects.push({id, source, target, strings});
     //         localStorage.setItem('projects',JSON.stringify(projects));
     //         callback(projects);
+    //     }
+    // , 3300);
+
+    // let projects = JSON.parse(localStorage.getItem('projects'));
+    // const id = Date.now();
+    // setTimeout(
+    //     () => {
+    //         projects.push({id, source, target, strings});
+    //         localStorage.setItem('projects',JSON.stringify(projects));
+    //         callback(projects);
+    //     }
+    // , 3300);
+}
+
+export const getProject = (pid, callback) => {
+    
+  
+    const to = dappAddress;
+    const value = "0";
+    const callFunction = "getProject";
+    console.log("getProject " + pid);
+    const callArgs = "[" + pid + "]"; 
+    nebPay.simulateCall(to, value, callFunction, callArgs, { 
+        qrcode: {showQRCode: false},
+        listener:      function (serialNumber, resp) {
+            console.log(resp);
+            if (resp.result != 'null') {
+                var result = JSON.parse(resp.result);
+                console.log("----------HTT");
+                console.log(result);
+                let stringsDict = {};
+                for (let i=0; i<result.stringObjs.length; ++i) {
+                    let stringObjId = result.stringObjs[i].id;
+                    let stringObj = result.stringObjs[i];
+                    let newTransStringObj = [];
+                    for (let key in stringObj.transStringObjs) {
+                        if (stringObj.transStringObjs.hasOwnProperty(key)) {           
+                            let transStringObj = stringObj.transStringObjs[key];
+                            newTransStringObj.push(transStringObj)
+                        }
+                    }
+                    stringObj.transStringObjs = newTransStringObj;
+                    stringsDict[stringObjId] = stringObj;
+                }
+                let outProj = {pid: pid, 
+                                whoami: result.whoami,
+                                source: result.sourceLanguage,
+                                target: result.targetLanguage,
+                                strings: stringsDict}
+                console.log(outProj);
+                callback(outProj);
+            } else {
+                callback(null);
+            }
+    }});
+
+    // const project = {
+    //     pid: 989,
+    //     whoami: 33,
+    //     source: 'en',
+    //     target: 'fr',
+    //     strings: {
+    //         403: { 
+    //             id: 403,
+    //             text: 'Bird',
+    //             transStrObjs: [{
+    //                     text: 'Tsipor',
+    //                     posVotes: { 33:true },
+    //                     negVotes: { 38:true, 98:true }
+    //                 }, {
+    //                     text: 'Sus',
+    //                     posVotes: { 38:true, 98:true, 989:true },
+    //                     negVotes: { 99:true }
+    //                 }]
+    //         },
+    //         388: {
+    //             id: 388,
+    //             text: 'Chipmunk',
+    //             transStrObjs: [{
+    //                     text: 'Snai',
+    //                     posVotes: { 33:true },
+    //                     negVotes: { 38:true, 98:true }
+    //                 }, {
+    //                     text: 'Pil',
+    //                     posVotes: { 38:true, 98:true, 989:true },
+    //                     negVotes: { 99:true }
+    //                 }]
+    //         }
+    //     }
+    // };
+
+    // setTimeout( ()=> {
+    //     callback(project);
+    // },900);
+}
+
+
+
+export const submitChanges = (changes, callback) => {
+    var to = dappAddress;
+    var value = "0";
+    var callFunction = "updateProjectStrings";
+    
+    console.log(changes);
+    var callArgs = JSON.stringify([0, changes.ids, changes.meanings, changes.plusminus]);
+    console.log("-------ddd");
+    console.log(callArgs);
+
+    nebPay.call(to, value, callFunction, callArgs, {    
+        listener: (serialNum, resp)=>{
+            
+            console.log("------------------");
+            console.log(resp);
+            const hash_value = resp.txhash;    
+            let reload_trans = setInterval(function(){
+                neb.api.getTransactionReceipt({hash: hash_value}).then(function(receipt) {        
+                    const result_trans = receipt.status;        
+                    if (result_trans == 1) {
+                        console.log("success");
+                        clearInterval(reload_trans); 
+                        callback();  
+                    } else if (result_trans == 2) {
+                        console.log("pending");
+                    } else {
+                        console.log("fail")
+                    }
+            })}, 1000);
+            
+    }});
+    // console.log("Here are the changes made:", changes);
+    // setTimeout(
+    //     () => {
+    //         callback();
     //     }
     // , 3300);
 }

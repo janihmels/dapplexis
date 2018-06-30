@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // -------------------------------------------------------------
@@ -25,6 +25,9 @@ import { unregister } from './registerServiceWorker';
 const store = createStore( 
   reducers,
   applyMiddleware(thunk)
+  
+  //compose(applyMiddleware(thunk),
+  //window.devToolsExtension && window.devToolsExtension())
 );
 
 //let { user } = store.getState().store;
@@ -48,7 +51,7 @@ const doRender = (user) => {
             <Switch>
               <Route path="/my" component={My} />
               <Route path="/community" component={Community} />
-              <Route path="/view" component={View} />
+              <Route path="/view/:pid" component={View} />
               <Route path="/new" component={New} />
             </Switch>
           </Frame>

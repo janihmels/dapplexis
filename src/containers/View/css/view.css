@@ -13,9 +13,22 @@
 
 .view-main .headline {
     margin-left: 18px;
+    float: left;
 }
+
+.view-main .change-made {
+    float: right;
+    margin-right: 33px;
+}
+
+.view-main a {
+    color: #0ab4b4;
+    cursor: pointer;
+}
+
+
 .view-main table {
-    padding: 18px;
+    padding: 16px;
     width: 100%;
 }
 .view-main thead td {
@@ -39,7 +52,6 @@
     background: rgba(20, 20, 20, 0.2);
     color: #ccc;
     outline: none;
-    cursor: pointer;
 }
 
 .contribute-btn {
@@ -53,13 +65,14 @@
     cursor: pointer;
     display: block;
     float: left;
-  }
-  .contribute-btn:hover {
+}
+  
+.contribute-btn:hover {
     background: rgba(20, 20, 20, 0.8);
     padding: 3px 18px;
-  }
+}
 
-  .view-main input {
+.view-main input {
     margin: 15px 0 33px 0;
     font-size: 16px;
     padding: 10px;
@@ -72,7 +85,48 @@
     outline: none;
   }
 
-  .view-main .cont-btn {
+.view-main .cont-btn {
     margin: 8px auto;
     border: 1px solid red;
-  }
+}
+
+.view-main .trans-main {
+    display: block;
+    line-height: 33px;
+    clear: both;
+}
+
+.view-main .trans-main i {
+    margin: auto 8px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.view-main .trans-main .trans-text {
+    float: left;
+}
+
+.view-main .trans-main .trans-rating {
+    float: right;
+    margin: auto 18px;
+    font-weight: bold;
+    color: #0ab4b4;
+}
+
+.view-main .trans-main .trans-indicate.inactive {
+    visibility: hidden;
+}
+.view-main .trans-main i.up:hover {
+    color: green;
+}
+.view-main .trans-main i.up:down {
+    font-size: 33px;
+}
+.view-main .trans-main i.down:hover {
+    color: red;
+}
+
+.view-main .trans-main .trans-indicate {
+    float: right;
+}
+

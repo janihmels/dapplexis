@@ -45,7 +45,7 @@ export const setLoadStatus = loadstatus => {
 };
 
 // ---------------------------------------------------------------------------------
-export const fetchMyProjects = projects => dispatch => {
+export const fetchMyProjects = () => dispatch => {
   dispatch(setLoadStatus('Getting data...'));
   nebulas.getUserProjects( projects => {
     dispatch(setMyProjects(projects));
@@ -108,10 +108,60 @@ export const submitNew = (source, target, strings, callback) => dispatch => {
 }
 
 // ---------------------------------------------------------------------------------
-export const fetchCommProjects = projects => dispatch => {
+export const fetchCommProjects = () => dispatch => {
   dispatch(setLoadStatus('Getting data...'));
   nebulas.getCommunityProjects( projects => {
     dispatch(setCommProjects(projects));
     dispatch(setLoadStatus(''));
   });
+}
+// ---------------------------------------------------------------------------------
+export const fetchProject = pid => dispatch => {
+  dispatch(setLoadStatus('Getting data...'));
+  nebulas.getProject( pid, project => {
+    dispatch(setCurrentProject(project));
+    dispatch(setLoadStatus(''));
+  });
+}
+// ---------------------------------------------------------------------------------
+export const setCurrentProject = project => {
+  return {
+    type: "SET_CURRENT_PROJECT",
+    project
+  };
+}
+
+// ---------------------------------------------------------------------------------
+export const voteForString = (stringid, text, plusminus) => {
+  return {
+    type: "VOTE_FOR_STRING",
+    stringid, text, plusminus
+  };
+}
+
+// ---------------------------------------------------------------------------------
+export const contributeString = (stringid, string) => {
+  return {
+    type: "CONTRIBUTE_STRING",
+    stringid, string
+  };
+}
+
+// ---------------------------------------------------------------------------------
+export const submitChanges = changes => dispatch => {
+  dispatch(setLoadStatus('Writing data'));  
+  nebulas.submitChanges( 
+    changes, 
+    () => {
+      dispatch(clearChanges());
+      dispatch(setLoadStatus(''));
+    }
+  );
+}
+
+// ---------------------------------------------------------------------------------
+export const clearChanges = () => {
+  return {
+    type: "CLEAR_CHANGES"
+  };
 }
