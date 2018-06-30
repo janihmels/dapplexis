@@ -6,8 +6,8 @@ var neb = new Neb.Neb();
 //var httpRequest = new HttpRequest.HttpRequest();
 //neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
 
-neb.setRequest(new HttpRequest.HttpRequest("https://testnet.nebulas.io")); //testneb1
-const dappAddress = "n1xMeMJYjEWcdHf1BqTgVWDUsjxK5DobDMD";
+neb.setRequest(new HttpRequest.HttpRequest("https://mainnet.nebulas.io")); //testneb1
+const dappAddress = "n1rgYhizqJxTyeG5jY7CFBxXuy66UqwX9GG";
 
 export const register = (user, transStarted, transFinished) => {    
     const to = dappAddress;
