@@ -7,7 +7,7 @@ var neb = new Neb.Neb();
 //neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
 
 neb.setRequest(new HttpRequest.HttpRequest("https://testnet.nebulas.io")); //testneb1
-const dappAddress = "n1mdy8XCZFckh993moBGEofEvNL5KLhrGAR";
+const dappAddress = "n1xMeMJYjEWcdHf1BqTgVWDUsjxK5DobDMD";
 
 export const register = (user, transStarted, transFinished) => {    
     const to = dappAddress;
@@ -112,6 +112,20 @@ export const getUserProjects = callback => {
                 let outProjects = [];
                 for (let i=0; i<result.projects.length; ++i) {
                     const proj = result.projects[i];
+             
+                    let numTranslated = 0;
+                    for (let i=0; i<proj.stringIds.length; ++i){
+                        let stringTranslations = proj.translationsArr[i];
+                        // Iterate over all translation strings and check if one of them has positive vote count
+                        for (let transStrId in stringTranslations) {
+                            let [posVotes, negVotes] = stringTranslations[transStrId];
+                            if (Object.keys(posVotes).length - Object.keys(negVotes).length > 0) {
+                                numTranslated += 1;
+                                break;
+                            }
+                        }
+                    }
+                    console.log(numTranslated);
                     outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds});
                 }
                 callback(outProjects);
@@ -141,6 +155,19 @@ export const getCommunityProjects = callback => {
                 let outProjects = [];
                 for (let i=0; i<result.length; ++i) {
                     const proj = result[i];
+                    let numTranslated = 0;
+                    for (let i=0; i<proj.stringIds.length; ++i){
+                        let stringTranslations = proj.translationsArr[i];
+                        // Iterate over all translation strings and check if one of them has positive vote count
+                        for (let transStrId in stringTranslations) {
+                            let [posVotes, negVotes] = stringTranslations[transStrId];
+                            if (Object.keys(posVotes).length - Object.keys(negVotes).length > 0) {
+                                numTranslated += 1;
+                                break;
+                            }
+                        }
+                    }
+                    console.log(numTranslated);
                     outProjects.push({id: proj.id, source: proj.sourceLanguage, target: proj.targetLanguage, strings: proj.stringIds});
                 }
                 callback(outProjects);
