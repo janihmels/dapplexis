@@ -148,10 +148,10 @@ export const contributeString = (stringid, string) => {
 }
 
 // ---------------------------------------------------------------------------------
-export const submitChanges = changes => dispatch => {
+export const submitChanges = (changes, pid) => dispatch => {
   dispatch(setLoadStatus('Writing data'));  
   nebulas.submitChanges( 
-    changes, 
+    changes, pid,
     () => {
       dispatch(clearChanges());
       dispatch(setLoadStatus(''));

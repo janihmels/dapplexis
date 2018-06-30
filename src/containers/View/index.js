@@ -28,8 +28,8 @@ class View extends Component {
   }
 
   submitChanges = () => {
-    const { changes } = this.props.store;
-    this.props.submitChanges(changes);
+    const { changes, current: { pid } } = this.props.store;
+    this.props.submitChanges(changes, pid);
   }
   
   render() {
@@ -105,8 +105,8 @@ class Row extends Component {
     return (
       <tr>
         <td>{string.id}</td>
-        <td valign="top">{string.text}</td>
-        <td valign="top">
+        <td>{string.text}</td>
+        <td>
           {
             string.transStringObjs.map(
               trs => 

@@ -7,7 +7,7 @@ var neb = new Neb.Neb();
 //neb.setRequest(new HttpRequest.HttpRequest("http://localhost:8685"));
 
 neb.setRequest(new HttpRequest.HttpRequest("https://testnet.nebulas.io")); //testneb1
-const dappAddress = "n1zs7C3cqRZq2UaL7zu3mEMXkwfj8Q2CH7C";
+const dappAddress = "n1mdy8XCZFckh993moBGEofEvNL5KLhrGAR";
 
 export const register = (user, transStarted, transFinished) => {    
     const to = dappAddress;
@@ -284,13 +284,13 @@ export const getProject = (pid, callback) => {
 
 
 
-export const submitChanges = (changes, callback) => {
+export const submitChanges = (changes, pid, callback) => {
     var to = dappAddress;
     var value = "0";
     var callFunction = "updateProjectStrings";
     
     
-    var callArgs = JSON.stringify([0, changes.ids, changes.meanings, changes.plusminus]);
+    var callArgs = JSON.stringify([pid, changes.ids, changes.meanings, changes.plusminus]);
     
     nebPay.call(to, value, callFunction, callArgs, {    
         listener: (serialNum, resp)=>{

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // --------------------------------------------------------------
+import Row from '../Row';
+// --------------------------------------------------------------
 import { addNew, fetchMyProjects } from '../../redux/store/actions';
 // --------------------------------------------------------------
 import "./css/my.css";
@@ -37,8 +39,14 @@ class My extends Component {
             </thead>
             <tbody>
               {
-                mine.map( item => {
-                  return <Row item={item} viewItem={this.view} />
+                mine.map( (item, iidx) => {
+                  return (
+                    <Row 
+                      item={item} 
+                      viewItem={this.view} 
+                      key={`row-${iidx}`}
+                    />
+                  )
                 })
               }
             </tbody>
@@ -47,28 +55,6 @@ class My extends Component {
     )
   }
 
-}
-
-class Row extends Component {
-
-  viewItem = () => {
-    const { item } = this.props;
-    this.props.viewItem(item.id);
-  }
-
-  render() {
-    const { item } = this.props;
-    const trans = 0, total = item.strings.length;
-
-    return (
-      <tr onClick={this.viewItem}>
-        <td>{item.id}</td>
-        <td>{item.source}</td>
-        <td>{item.target}</td>
-        <td>{trans} / {total}</td>
-      </tr>
-    );
-  }
 }
 
 // --------------------------------------------------------------
