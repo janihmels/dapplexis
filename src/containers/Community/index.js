@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 // --------------------------------------------------------------
+import Row from '../Row';
+// --------------------------------------------------------------
 import { fetchCommProjects } from '../../redux/store/actions';
 // --------------------------------------------------------------
 import "./css/community.css";
@@ -16,6 +18,9 @@ class Community extends Component {
     this.props.fetchCommProjects();
   }
 
+  view = pid => {
+    this.props.history.push(`./view/${pid}`);
+  }
 
   render() {
     const { community } = this.props.store;
@@ -32,15 +37,13 @@ class Community extends Component {
             </thead>
             <tbody>
               {
-                community.map( item => {
-                  const trans = 0, total = item.strings.length;
+                community.map( (item, iidx) => {
                   return (
-                    <tr>
-                      <td>{item.id}</td>
-                      <td>{item.source}</td>
-                      <td>{item.target}</td>
-                      <td>{trans} / {total}</td>
-                    </tr>
+                    <Row 
+                      item={item} 
+                      viewItem={this.view} 
+                      key={`row-${iidx}`}
+                    />
                   )
                 })
               }

@@ -102,8 +102,8 @@ export const getProject = (pid, callback) => {
 
 
 
-export const submitChanges = (changes, callback) => {
-    console.log("Here are the changes made:", changes);
+export const submitChanges = (changes, pid, callback) => {
+    console.log("Here are the changes made:", changes, pid);
     setTimeout(
         () => {
             callback();
