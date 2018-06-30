@@ -24,7 +24,8 @@ class SignUp extends Component {
       nick: '',
       languages: [],
       pickLanguage: false,
-      transid: null
+      transid: null,
+      showinfo: false
     };
   }
 
@@ -77,11 +78,25 @@ class SignUp extends Component {
       )  
     }
   }
+
+  showInfo = () => {
+    this.setState({showinfo: (9===9)});
+  }
+
+  hideInfo = () => {
+    this.setState({showinfo: false});
+  }
+
   // --------------------------------------------------------------
   // --------------------------------------------------------------
   render() {
 
-    const { handleSubmit } = this.props;
+    if(this.state.showinfo) return (
+      <div className="sign-up">
+        <ShowInfo onClose={this.hideInfo}/>;
+      </div>
+    );
+
     const isReady = 
       this.state.languages.length && 
       this.state.nick.length;
@@ -107,7 +122,7 @@ class SignUp extends Component {
             </div>
           ) : null
         }
-        
+
         <LanguagePicker 
           addLanguage = {this.addLanguage}
           closePopup = {this.closePopup}
@@ -120,6 +135,7 @@ class SignUp extends Component {
             <h2>DApp Lexis</h2>
             <i className="icon ion-cube" aria-hidden="true"></i>
             <p>Decentralized Crowd Translation</p>
+            <a onClick={this.showInfo}>What is DApp Lexis ?</a>
           </div>
           <form className="signupForm" name="signupform">
           <h2>Register</h2>
@@ -197,7 +213,28 @@ class Language extends Component {
   }
 }
 
-
+class ShowInfo extends Component {
+  render() {
+    return (
+      <div className="info-wrapper">
+      <div className="curtain" />
+      <div className='show-info'>
+        <i className="icon ion-cube logo" aria-hidden="true"></i>
+        <div className="text logo">DApp Lexis</div>
+        <p className="main-text">
+        DApp Lexis is a community driven translation service for DApp UI strings. 
+        <ul>
+          <li>If you're a DApp developer you can submit your DApp UI strings and request for translations into foreign languages.  If you speak more than one language you can contribute translations or vote for existing ones. </li>
+          <li>The network remembers the translations which were added and so the translation process becomes faster and more efficient as the network evolves.</li>
+          <li>The network remembers its contributers. Incentive mechanisms are under development to compensate both active and past contributes for their time and efforts.</li>
+        </ul>
+        </p>
+        <div className="readit-btn" onClick={this.props.onClose}>Ok </div>
+      </div>
+      </div>
+    )
+  }
+} 
 
 // --------------------------------------------------------------
 // --------------------------------------------------------------
