@@ -55,7 +55,11 @@ export const getUser = callback => {
     const to = dappAddress;
     const value = "0";
     const callFunction = "getUser";
-    const callArgs = "[]"; 
+    const callArgs = "[]";
+    if(typeof(webExtensionWallet) === "undefined"){     
+        console.log("Error: the web wallet extension is not installed");
+        callback(null);
+    }
     nebPay.simulateCall(to, value, callFunction, callArgs, { 
         qrcode: {showQRCode: false},
         listener:      function (serialNumber, resp) {
@@ -67,7 +71,6 @@ export const getUser = callback => {
                 callback(null);
             }    
     }});
-    callback(null);
 };
 
 export const unregister = callback => {
