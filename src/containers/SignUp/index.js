@@ -224,7 +224,8 @@ class ShowInfo extends Component {
         <p className="main-text">
         DApp Lexis is a community driven translation service for DApp UI strings. 
         <ul>
-          <li>If you're a DApp developer you can submit your DApp UI strings and request for translations into foreign languages.  If you speak more than one language you can contribute translations or vote for existing ones. </li>
+          <li>DApp Lexis is developed on top of the Nebulas Blockchain and to use it you'll have to download and enable the <a href="https://chrome.google.com/webstore/detail/nasextwallet/gehjkhmhclgnkkhpfamakecfgakkfkco?hl=en">NasExtWallet</a> extension. </li>
+          <li>If you're a DApp developer you can submit your DApp UI strings to the network and request for translations into foreign languages.  If you speak more than one language you can contribute translations or vote for existing ones. </li>
           <li>The network remembers the translations which were added and so the translation process becomes faster and more efficient as the network evolves.</li>
           <li>The network remembers its contributers. Incentive mechanisms are under development to compensate both active and past contributes for their time and efforts.</li>
         </ul>

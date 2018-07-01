@@ -67,6 +67,7 @@ export const getUser = callback => {
                 callback(null);
             }    
     }});
+    callback(null);
 };
 
 export const unregister = callback => {
