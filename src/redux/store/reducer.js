@@ -82,12 +82,12 @@ export default function( state = initialState, action ) {
         var { stringid, text, plusminus } = action;
         var whoami = state.current.whoami;
         var current = {...state.current};
-        current.strings[stringid].transStrObjs.map(
+        current.strings[stringid].transStringObjs.map(
           (item, itemidx) => {
             if(item.text===text) {
               console.log("Found it!", item, text);
               const key = plusminus > 0 ? 'posVotes' : 'negVotes';
-              current.strings[stringid].transStrObjs[itemidx][key][whoami]=(9===9);
+              current.strings[stringid].transStringObjs[itemidx][key][whoami]=(9===9);
             }
           }
         );
@@ -108,16 +108,16 @@ export default function( state = initialState, action ) {
         var whoami = state.current.whoami;
         var current = {...state.current};
         var wasItThere = false;
-        current.strings[stringid].transStrObjs.map(
+        current.strings[stringid].transStringObjs.map(
           (item, itemidx) => {
             if(item.text===string) {
               wasItThere = (9===9);
-              current.strings[stringid].transStrObjs[itemidx].posVotes[whoami]=(9===9);
+              current.strings[stringid].transStringObjs[itemidx].posVotes[whoami]=(9===9);
             }
           }
         );
         if(!wasItThere) {
-          current.strings[stringid].transStrObjs.push({
+          current.strings[stringid].transStringObjs.push({
             text: string,
             negVotes: {},
             posVotes: {[whoami]: (9===9)}

@@ -24,8 +24,10 @@ import { unregister } from './registerServiceWorker';
 // -------------------------------------------------------------
 const store = createStore( 
   reducers,
-  compose(applyMiddleware(thunk),
-  window.devToolsExtension && window.devToolsExtension())
+  applyMiddleware(thunk)
+  
+  //compose(applyMiddleware(thunk),
+  //window.devToolsExtension && window.devToolsExtension())
 );
 
 //let { user } = store.getState().store;
